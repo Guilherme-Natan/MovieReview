@@ -1,5 +1,14 @@
-<%# # TODO: Translate movie names to portuguese %>
+<%# # TODO: Translate everything to portuguese as well %>
 <ul>
-    <li>Avengers Endgame</li>
-    <li>Hulk</li>
+     <% @movies.each do |movie| %>
+         <li>
+            <%=movie.name%>,
+            rating <%=movie.rating%>,
+            released at <%=movie.release_date%>,
+            <%# TODO: Test 0 minutes and 0 hours %>
+            duration of <%=minutes_to_hours movie.duration%>,
+            <%# TODO: Change number decimal separators from commas to dots in portuguese. See the documentation using zeal for this%>
+            grossed <%=number_to_currency movie.total_gross, precision: 0%> in total
+         </li>
+     <% end %>
 </ul>
