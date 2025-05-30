@@ -2,11 +2,11 @@
 <ul>
      <% @movies.each do |movie| %>
          <li>
-            <%=movie.name%>,
+            <%=movie.title%>,
             rating <%=movie.rating%>,
             <%# TODO: Change date format in portuguese%>
-            released at <%=movie.release_date.strftime("%m/%d/%y")%>,
-            duration of <%=minutes_to_hours movie.duration%>,
+            released at <%=movie.released_on.strftime("%m/%d/%y")%>,
+            <%# duration of <%=minutes_to_hours movie.duration%>
             <%# TODO: Change number decimal separators from commas to dots in portuguese. See the documentation using zeal for this%>
             grossed <%=number_to_currency movie.total_gross, precision: 0%> in total
          </li>
