@@ -4,14 +4,17 @@
          <li>
             <%=movie.name%>,
             rating <%=movie.rating%>,
-            released at <%=movie.release_date%>,
-            <%# TODO: Test 0 minutes and 0 hours %>
+            <%# TODO: Change date format in portuguese%>
+            released at <%=movie.release_date.strftime("%m/%d/%y")%>,
             duration of <%=minutes_to_hours movie.duration%>,
             <%# TODO: Change number decimal separators from commas to dots in portuguese. See the documentation using zeal for this%>
             grossed <%=number_to_currency movie.total_gross, precision: 0%> in total
          </li>
          <p>
             <%=movie.description%>
+         </p>
+         <p>
+            <%= did_it_flop movie%>
          </p>
      <% end %>
 </ul>

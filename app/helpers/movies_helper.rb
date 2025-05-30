@@ -7,6 +7,9 @@ module MoviesHelper
     "#{hours} #{plural_or_singular("hour", hours)} and #{minutes} #{plural_or_singular("minute", minutes)}"
   end
 
+  def did_it_flop(movie)
+    movie.flop? ? "Floped!" : "Didn't Flop!"
+  end
   private
 
   def plural_or_singular(word, number)
