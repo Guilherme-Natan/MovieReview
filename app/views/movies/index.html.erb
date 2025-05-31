@@ -2,7 +2,9 @@
 <% @movies.each do |movie| %>
   <section class="movie">
     <div class="summary">
-      <h2> <%=movie.title%> </h2>
+      <h2> 
+        <%= link_to movie.title, movie %>
+      </h2>
       <h3>rating <%=movie.rating%></h3>
       <%# TODO: Change date format in portuguese%>
       <p>Release date: <%=movie.released_on.strftime("%m/%d/%y")%></p>
