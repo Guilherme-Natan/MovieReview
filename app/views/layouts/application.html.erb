@@ -18,9 +18,9 @@
   </head>
 
   <body>
-    <header>
+    <header class="header">
       <h1>
-        Flix
+        <%= image_tag "logo.png", alt: "Flix Logo" %>
       </h1>
     </header>
     
@@ -28,7 +28,7 @@
       <%= yield %>
     </div>
     
-    <footer>
+    <footer class="footer">
       Copyright &copy; <%= Date.current.year %>
     </footer>
   </body>

@@ -8,7 +8,8 @@ module MoviesHelper
   end
 
   def did_it_flop(movie)
-    movie.flop? ? "Floped!" : "Didn't Flop!"
+     # movie.flop? ? "(flop!)" : ""
+     "(flop!)" if movie.flop?
   end
   private
 
