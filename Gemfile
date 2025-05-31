@@ -57,3 +57,6 @@ group :test do
 end
 
 gem "pry", "~> 0.15.2"
+
+gem "bootstrap"
+gem "dartsass-sprockets"
