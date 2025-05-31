@@ -11,6 +11,10 @@ module MoviesHelper
      # movie.flop? ? "(flop!)" : ""
      "(flop!)" if movie.flop?
   end
+
+  def year_of(movie)
+    movie.released_on.year
+  end
   private
 
   def plural_or_singular(word, number)

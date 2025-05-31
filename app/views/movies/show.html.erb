@@ -1,0 +1,38 @@
+<section class="movie-details">
+  <div class="details">
+    <h1> <%= @movie.title %> </h1>
+    <h2>
+      <%= year_of(@movie) %> &bull; <%= @movie.rating %>
+    </h2>
+    <%# TODO: Change date format in portuguese %>
+    <%# duration of <%= minutes_to_hours @movie.duration %>
+    <%# TODO: Change number decimal separators from commas to dots in portuguese. See the documentation using zeal for this %>
+    <p> <%= @movie.description %> </p>
+
+    <table>
+      <tr>
+        <th>
+          Release date:
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= @movie.released_on.strftime("%m/%d/%y") %>
+        </td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>
+          Gross worldwide
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= number_to_currency(@movie.total_gross, precision: 0) %> <%= did_it_flop(@movie) %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>
