@@ -60,3 +60,10 @@ gem "pry", "~> 0.15.2"
 
 gem "bootstrap"
 gem "dartsass-sprockets"
+
+group :development do
+  gem "ripper-tags"
+end
+gem "sorbet", group: :development
+gem "sorbet-runtime"
+gem "tapioca", require: false, group: [ :development, :test ]
