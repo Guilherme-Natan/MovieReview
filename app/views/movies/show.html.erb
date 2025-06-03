@@ -39,5 +39,6 @@
 </section>
 
 <section class="admin">
-  <%= link_to "Edit Movie Details", edit_movie_path, class: "button" %>
+  <%= link_to "Edit Movie Details", edit_movie_path(@movie), class: "button" %>
+  <%= link_to "Delete Movie", @movie, class: "button", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 </section>
