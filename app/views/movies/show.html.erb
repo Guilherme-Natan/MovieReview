@@ -1,4 +1,8 @@
 <section class="movie-details">
+  <div class="image">
+    <%=image_tag @movie.image_file_name%>
+  </div>
+
   <div class="details">
     <h1> <%= @movie.title %> </h1>
     <h2>
@@ -12,30 +16,39 @@
     <table>
       <tr>
         <th>
-          Release date:
+          Director:
         </th>
+        <td>
+          <%= @movie.director%>
+        </td>
       </tr>
       <tr>
+        <th>
+          Duration:
+        </th>
+        <td>
+          <%= minutes_to_hours @movie.duration%>
+        </td>
+      </tr>
+      <tr>
+      <tr>
+        <th>
+          Release date:
+        </th>
         <td>
           <%= @movie.released_on.strftime("%m/%d/%y") %>
         </td>
       </tr>
-    </table>
-
-    <table>
       <tr>
         <th>
-          Gross worldwide
+          Gross worldwide:
         </th>
-      </tr>
-      <tr>
         <td>
           <%= number_to_currency(@movie.total_gross, precision: 0) %> <%= did_it_flop(@movie) %>
         </td>
       </tr>
     </table>
     
-  </div>
 </section>
 
 <section class="admin">

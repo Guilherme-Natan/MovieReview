@@ -5,13 +5,17 @@
       <h2> 
         <%= link_to movie.title, movie %>
       </h2>
-      <h3>rating <%=movie.rating%></h3>
+      <h3>rating <%=movie.rating%> &bull; <%=minutes_to_hours movie.duration%> </h3>
       <%# TODO: Change date format in portuguese%>
       <p>Release date: <%=movie.released_on.strftime("%m/%d/%y")%></p>
       <%# duration of <%=minutes_to_hours movie.duration%>
       <%# TODO: Change number decimal separators from commas to dots in portuguese. See the documentation using zeal for this%>
       <p>Gross worldwide: <%=number_to_currency(movie.total_gross, precision: 0)%> in total <%=did_it_flop(movie)%></p>
-      <p> <%=truncate(movie.description, length: 150, separator: ' ')%> </div>
+      <p> <%=truncate(movie.description, length: 150, separator: ' ')%> 
+    </div>
+    <div class="image">
+      <%=image_tag movie.image_file_name%>
+    </div>
   </section>
 <% end %>
 

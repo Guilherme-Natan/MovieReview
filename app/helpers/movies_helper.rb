@@ -1,5 +1,6 @@
 module MoviesHelper
   def minutes_to_hours(minutes)
+    return nil if minutes.nil?
     hours = minutes / 60
     minutes %= 60
     return "#{minutes} #{plural_or_singular("minute", minutes)}" if hours == 0
