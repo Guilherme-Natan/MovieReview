@@ -66,6 +66,6 @@ group :development do
 end
 gem "sorbet", group: :development
 gem "sorbet-runtime"
-gem "tapioca", "~> 0.17", ">= 0.17.1", require: false, group: [ :development, :test ]
+gem "tapioca", "~> 0.17", require: false, group: [ :development, :test ]
 
 gem "ostruct"
