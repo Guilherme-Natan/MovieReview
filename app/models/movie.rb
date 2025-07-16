@@ -10,6 +10,8 @@ class Movie < ApplicationRecord
     with: /\A\w+\.(PNG|JPG)\z/i, message: "Image file type must be either png or jpg"
   }
 
+  has_many :reviews, dependent: :destroy
+
   def self.released
     where("released_on <= ?", Time.current).order("released_on desc")
   end
