@@ -11,6 +11,12 @@
     <%# TODO: Change date format in portuguese %>
     <%# duration of <%= minutes_to_hours @movie.duration %>
     <%# TODO: Change number decimal separators from commas to dots in portuguese. See the documentation using zeal for this %>
+
+    <div class="review">
+      <%= average_stars(@movie) %> &bull;
+      <%= link_to pluralize(@movie.reviews.size, "review"), movie_reviews_path(@movie) %>
+    </div>
+
     <p> <%= @movie.description %> </p>
 
     <table>
@@ -49,12 +55,7 @@
       </tr>
     </table>
     
-    <div class="review">
-      <%= link_to "Write a review", new_movie_review_path(@movie), class: "review"%>
-      <p>
-        <%= link_to pluralize(@movie.reviews.size, "review"), movie_reviews_path(@movie) %>
-      </p>
-    </div>
+    <%= link_to "Write a review", new_movie_review_path(@movie), class: "review"%>
     
 </section>
 
