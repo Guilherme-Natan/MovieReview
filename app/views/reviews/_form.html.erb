@@ -1,0 +1,16 @@
+<%= form_with(model: model) do |form|%>
+  
+  <%=render "shared/form_errors", object:review %>
+
+  <%=form.label :name%>
+  <%=form.text_field :name, autofocus: true%>
+
+  <%=form.label :stars%>
+  <%=form.select :stars, Review::STARS, prompt: "Pick one" %>
+
+  <%=form.label :comment%>
+  <%=form.text_area :comment, rows: 5%>
+  
+  <%=form.submit%>
+<%end%>
+
