@@ -2,9 +2,6 @@
   
   <%=render "shared/form_errors", object:review %>
 
-  <%=form.label :name%>
-  <%=form.text_field :name, autofocus: true%>
-
   <%=form.label :stars%>
   <%=form.select :stars, Review::STARS, prompt: "Pick one" %>
 
