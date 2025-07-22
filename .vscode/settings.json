@@ -1,3 +1,8 @@
 {
-    "emmet.includeLanguages": {"erb": "html"},
+    "emmet.includeLanguages": {
+        "erb": "html"
+    },
+    "cSpell.ignoreWords": [
+        "favorited"
+    ],
 }
