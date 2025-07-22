@@ -54,8 +54,23 @@
         </td>
       </tr>
     </table>
+
+  <%= link_to "Write a review", new_movie_review_path(@movie), class: "review"%>
+
+  </div>
     
-    <%= link_to "Write a review", new_movie_review_path(@movie), class: "review"%>
+   <aside>
+     <% if @users_who_favorited.present? %>
+       <h4>Fans</h4>
+       <ul>
+         <% @users_who_favorited.each do |user| %>
+           <li>
+             <%= link_to user.name, user %>
+           </li>
+         <% end %>
+       </ul>
+     <% end %>
+   </aside>
     
 </section>
 
