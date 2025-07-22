@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to (session[:intended_url] || user), notice: "Welcome back, #{user.name}!"
+      session[:intended_url] = nil
     else
       flash.now.alert = "Email or password incorrect"
       render :new, status: :unprocessable_entity

@@ -22,4 +22,10 @@ private
       redirect_to new_session_url, alert: "Please sign in first!"
     end
   end
+
+  def require_admin
+    unless current_user.admin?
+      redirect_to movies_path, alert: "Forbidden Access!"
+    end
+  end
 end
