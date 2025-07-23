@@ -9,6 +9,9 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @users_who_favorited = @movie.users_who_favorited
+    if current_user
+      @favorite = current_user.favorites.find_by(movie: @movie)
+    end
   end
 
   def edit

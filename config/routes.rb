@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :favorites
   resources :users
   root "movies#index"
 
   resources :movies do
     resources :reviews
+    resources :favorites
   end
 
   resource :session, only: [ :new, :create, :destroy ]
