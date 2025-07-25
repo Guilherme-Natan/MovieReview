@@ -16,9 +16,10 @@ class Movie < ApplicationRecord
   has_many :movie_genres, dependent: :destroy
   has_many :genres, through: :movie_genres
 
-  def self.released
-    where("released_on <= ?", Time.current).order("released_on desc")
-  end
+  scope :upcoming, -> { where("released_on >= ?", Time.current).order("released_on asc") }
+  scope :released, -> { where("released_on <= ?", Time.current).order("released_on desc") }
+  scope :hit, ->(hit_limit = 225_000_000) { released.where("total_gross > ?", hit_limit) }
+  scope :recent, ->(max = 3) { released.limit(max) }
 
   def flop?
     total_gross.blank? || total_gross < 225_000_000
