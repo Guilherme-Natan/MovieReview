@@ -7,7 +7,7 @@ class Movie < ApplicationRecord
   }
   validates :description, length: { minimum: 15 }
   validates :image_file_name, format: {
-    with: /\A\w+\.(PNG|JPG)\z/i, message: "Image file type must be either png or jpg"
+    with: /\A[\w\-]+\.(PNG|JPG)\z/i, message: "Image file type must be either png or jpg"
   }
 
   has_many :reviews, dependent: :destroy
