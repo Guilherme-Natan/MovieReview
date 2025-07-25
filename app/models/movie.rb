@@ -1,5 +1,8 @@
 class Movie < ApplicationRecord
+  before_validation :set_slug
+
   validates :title, :released_on, :director, presence: true
+  validates :slug, uniqueness: true
   RATINGS = %w[G PG PG-13 R NC-17]
   validates :rating, inclusion: { in: RATINGS }
   validates :total_gross, :duration, numericality: {
@@ -28,5 +31,15 @@ class Movie < ApplicationRecord
 
   def average_stars
     reviews.average(:stars)
+  end
+
+  def to_param
+    slug
+  end
+
+  private
+
+  def set_slug
+    self.slug = title.parameterize
   end
 end
