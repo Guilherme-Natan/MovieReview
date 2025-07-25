@@ -19,6 +19,7 @@ class Movie < ApplicationRecord
   scope :upcoming, -> { where("released_on >= ?", Time.current).order("released_on asc") }
   scope :released, -> { where("released_on <= ?", Time.current).order("released_on desc") }
   scope :hit, ->(hit_limit = 225_000_000) { released.where("total_gross > ?", hit_limit) }
+  scope :flop, ->(hit_limit = 225_000_000) { released.where("total_gross <= ?", hit_limit) }
   scope :recent, ->(max = 3) { released.limit(max) }
 
   def flop?
