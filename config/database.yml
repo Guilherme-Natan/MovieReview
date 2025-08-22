@@ -18,5 +18,5 @@ test:
   database: 'movie_review_test'
 
 production:
-  <<: *default
-  database: 'movie_review_production'
+  # <<: *default
+  # database: 'movie_review_production'
