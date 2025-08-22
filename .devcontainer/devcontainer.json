@@ -1,9 +1,14 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+// README at: https://github.com/devcontainers/templates/tree/main/src/ruby-rails-postgres
 {
-	"name": "Debian",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:bookworm",
+	"name": "Ruby on Rails & Postgres",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+	"forwardPorts": [3000, 5432],
+
+	"postCreateCommand": "bundle install && rails db:setup",
 	
 	"customizations": {
         "vscode": {
@@ -11,16 +16,10 @@
                 "terminal.integrated.defaultProfile.linux": "zsh"
 			},
 			"extensions": [
-				"kaiwood.endwise",
-				"Shopify.ruby-extensions-pack",
-				"tavo.rails-schema",
-				"gurgeous.bust-a-gem",
-				"hridoy.rails-snippets",
-				"streetsidesoftware.code-spell-checker",
-				"streetsidesoftware.code-spell-checker-portuguese-brazilian"
+				"Gruntfuggly.todo-tree",
+				"streetsidesoftware.code-spell-checker"
 			]
         }
-    },
-	
-	"postCreateCommand": "./.devcontainer/postCreateCommand.sh"
+    }
+
 }

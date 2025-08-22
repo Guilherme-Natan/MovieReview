@@ -2,6 +2,9 @@
     "emmet.includeLanguages": {
         "erb": "html"
     },
+    "rubyLsp.rubyVersionManager": {
+        "identifier": "rvm"
+    },
     "cSpell.ignoreWords": [
         "favorited"
     ],
