@@ -24,8 +24,8 @@
   <%=form.label :duration%>
   <%=form.number_field :duration%>
 
-  <%=form.label :image_file_name%>
-  <%=form.text_field :image_file_name%>
+  <%=form.label :poster%>
+  <%=form.file_field :poster%>
   
   <div class="checkboxes">
     <%= form.collection_check_boxes :genre_ids, Genre.all, :id, :name %>

@@ -9,15 +9,16 @@ class Movie < ApplicationRecord
     greater_than_or_equal_to: 0, message: "should be greater than or equal to 0"
   }
   validates :description, length: { minimum: 15 }
-  validates :image_file_name, format: {
-    with: /\A[\w\-]+\.(PNG|JPG)\z/i, message: "Image file type must be either png or jpg"
-  }
+
+  validate :file_type
 
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :users_who_favorited, through: :favorites, source: :user
   has_many :movie_genres, dependent: :destroy
   has_many :genres, through: :movie_genres
+
+  has_one_attached :poster
 
   scope :upcoming, -> { where("released_on >= ?", Time.current).order("released_on asc") }
   scope :released, -> { where("released_on <= ?", Time.current).order("released_on desc") }
@@ -38,6 +39,18 @@ class Movie < ApplicationRecord
   end
 
   private
+
+  def file_type
+    return unless poster.attached?
+
+    unless poster.blob.byte_size <= 1.megabytes
+      errors.add :poster, message: "File size must not exceed 1 MB"
+    end
+
+    unless poster.image?
+      errors.add :poster, message: "File should be an image"
+    end
+  end
 
   def set_slug
     self.slug = title.parameterize

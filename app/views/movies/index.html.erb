@@ -17,7 +17,7 @@
       <p> <%=truncate(movie.description, length: 150, separator: ' ')%> 
     </div>
     <div class="image">
-      <%=image_tag movie.image_file_name%>
+      <%= poster(movie) %>
     </div>
   </section>
 <% end %>

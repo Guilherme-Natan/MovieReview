@@ -21,4 +21,12 @@ module MoviesHelper
   def plural_or_singular(word, number)
     number == 1 ? word : "#{word}s"
   end
+
+  def poster(movie)
+    if movie.poster.attached?
+      image_tag movie.poster
+    else
+      image_tag "placeholder.png"
+    end
+  end
 end

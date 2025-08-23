@@ -1,6 +1,6 @@
 <section class="movie-details">
   <div class="image">
-    <%=image_tag @movie.image_file_name%>
+    <%= poster(@movie) %>
     
     <div class="faves">
       <%= favorite_or_unfavorite(@movie, @favorite) %>
