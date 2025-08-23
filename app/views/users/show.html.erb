@@ -31,7 +31,7 @@
    <h3>Favorite Movies</h3>
    <div class="favorite-movies">
      <% @favorite_movies.each do |movie| %>
-       <%= poster(movie) %>
+       <%= link_to poster(movie), movie %>
      <% end %>
    </div>
  <% end %>
